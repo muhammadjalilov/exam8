@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from task1.models import Project, Task, Comment, Notification
+
+admin.site.register([Project, Task, Comment, Notification])

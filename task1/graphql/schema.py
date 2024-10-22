@@ -1,6 +1,6 @@
 import graphene
 
-class Query(graphene.ObjectType):
-    hello = graphene.String(default_value="Hi!")
+from task1.graphql.mutations import Mutation
+from task1.graphql.queries import Query
 
-schema = graphene.Schema(query=Query)
+schema = graphene.Schema(query=Query, mutation=Mutation)
