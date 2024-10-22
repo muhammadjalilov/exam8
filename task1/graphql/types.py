@@ -1,6 +1,6 @@
 from graphene_django import DjangoObjectType
 
-from task1.models import Project, Task
+from task1.models import Project, Task, Comment
 
 
 class ProjectType(DjangoObjectType):
@@ -11,4 +11,9 @@ class ProjectType(DjangoObjectType):
 class TaskType(DjangoObjectType):
     class Meta:
         model = Task
+        fields = '__all__'
+
+class CommentType(DjangoObjectType):
+    class Meta:
+        model = Comment
         fields = '__all__'
