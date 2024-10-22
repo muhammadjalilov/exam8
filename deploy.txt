@@ -1,0 +1,607 @@
+muhammad@muhammad-victus-by-hp:~$ ssh root@159.89.16.182
+Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8.0-36-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Tue Oct 22 18:15:24 UTC 2024
+
+  System load:  0.0                Processes:             122
+  Usage of /:   10.3% of 23.17GB   Users logged in:       1
+  Memory usage: 54%                IPv4 address for eth0: 159.89.16.182
+  Swap usage:   0%                 IPv4 address for eth0: 10.19.0.5
+
+Expanded Security Maintenance for Applications is not enabled.
+
+117 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+*** System restart required ***
+Pending kernel upgrade!
+Running kernel version:
+  6.8.0-36-generic
+Diagnostics:
+  The currently running kernel version is not the expected kernel version 6.8.0-47-generic.
+Last login: Tue Oct 22 16:42:39 2024 from 162.243.190.66
+root@book-store:~# cd ../
+root@book-store:/# ls
+bin                etc                lib64       opt   sbin                sys
+bin.usr-is-merged  home               lost+found  proc  sbin.usr-is-merged  tmp
+boot               lib                media       root  snap                usr
+dev                lib.usr-is-merged  mnt         run   srv                 var
+root@book-store:/# cd var/www/exam8
+root@book-store:/var/www/exam8# ls
+config  manage.py  requirements.txt  task1  task2  task3  users
+root@book-store:/var/www/exam8# git pull
+remote: Enumerating objects: 22, done.
+remote: Counting objects: 100% (22/22), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 12 (delta 9), reused 12 (delta 9), pack-reused 0 (from 0)
+Unpacking objects: 100% (12/12), 1.77 KiB | 453.00 KiB/s, done.
+From github.com:muhammadjalilov/exam8
+   340c1d2..b69aa5c  main       -> origin/main
+Updating 340c1d2..b69aa5c
+Fast-forward
+ config/settings.py         |  2 ++
+ readme.md                  |  4 ++++
+ task1/graphql/mutates.py   | 35 ++++++++++++++++++++++++++++++-----
+ task1/graphql/mutations.py | 46 ++++++++++++++++++++++++++++++++++++++++++----
+ task1/graphql/types.py     |  7 ++++++-
+ users/admin.py             |  7 ++++++-
+ 6 files changed, 90 insertions(+), 11 deletions(-)
+ create mode 100644 readme.md
+root@book-store:/var/www/exam8# git pull
+remote: Enumerating objects: 18, done.
+remote: Counting objects: 100% (17/17), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 9 (delta 5), reused 9 (delta 5), pack-reused 0 (from 0)
+Unpacking objects: 100% (9/9), 1.10 KiB | 375.00 KiB/s, done.
+From github.com:muhammadjalilov/exam8
+   b69aa5c..6458062  main       -> origin/main
+Updating b69aa5c..6458062
+Fast-forward
+ config/settings.py | 4 +++-
+ config/urls.py     | 6 ++++++
+ readme.md          | 2 +-
+ 3 files changed, 10 insertions(+), 2 deletions(-)
+root@book-store:/var/www/exam8# ls
+config  manage.py  readme.md  requirements.txt  task1  task2  task3  users
+root@book-store:/var/www/exam8# apt install nginx
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+nginx is already the newest version (1.24.0-2ubuntu7.1).
+0 upgraded, 0 newly installed, 0 to remove and 119 not upgraded.
+root@book-store:/var/www/exam8# git pull
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0 (from 0)
+Unpacking objects: 100% (4/4), 531 bytes | 531.00 KiB/s, done.
+From github.com:muhammadjalilov/exam8
+   6458062..696be25  main       -> origin/main
+Updating 6458062..696be25
+Fast-forward
+ requirements.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+root@book-store:/var/www/exam8# python3 -m venv env
+root@book-store:/var/www/exam8# source env/bin/activate
+(env) root@book-store:/var/www/exam8# pip install requirements.txt
+ERROR: Could not find a version that satisfies the requirement requirements.txt (from versions: none)
+HINT: You are attempting to install a package literally named "requirements.txt" (which cannot exist). Consider using the '-r' flag to install the packages listed in requirements.txt
+ERROR: No matching distribution found for requirements.txt
+(env) root@book-store:/var/www/exam8# ls
+config  env  manage.py  readme.md  requirements.txt  task1  task2  task3  users
+(env) root@book-store:/var/www/exam8# pip install -r requirements.txt
+Collecting asgiref==3.8.1 (from -r requirements.txt (line 1))
+  Using cached asgiref-3.8.1-py3-none-any.whl.metadata (9.3 kB)
+Collecting Django==5.1.2 (from -r requirements.txt (line 2))
+  Using cached Django-5.1.2-py3-none-any.whl.metadata (4.2 kB)
+Collecting django-graphql-jwt==0.4.0 (from -r requirements.txt (line 3))
+  Downloading django_graphql_jwt-0.4.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting django-preventconcurrentlogins==0.8.2 (from -r requirements.txt (line 4))
+  Downloading django-preventconcurrentlogins-0.8.2.tar.gz (4.3 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting djangorestframework==3.15.2 (from -r requirements.txt (line 5))
+  Using cached djangorestframework-3.15.2-py3-none-any.whl.metadata (10 kB)
+Collecting graphene==3.4 (from -r requirements.txt (line 6))
+  Downloading graphene-3.4-py2.py3-none-any.whl.metadata (6.7 kB)
+Collecting graphene-django==3.2.2 (from -r requirements.txt (line 7))
+  Downloading graphene_django-3.2.2-py2.py3-none-any.whl.metadata (8.3 kB)
+Collecting graphql-core==3.2.5 (from -r requirements.txt (line 8))
+  Downloading graphql_core-3.2.5-py3-none-any.whl.metadata (10 kB)
+Collecting graphql-relay==3.2.0 (from -r requirements.txt (line 9))
+  Downloading graphql_relay-3.2.0-py3-none-any.whl.metadata (12 kB)
+Collecting promise==2.3 (from -r requirements.txt (line 10))
+  Downloading promise-2.3.tar.gz (19 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting PyJWT==2.9.0 (from -r requirements.txt (line 11))
+  Using cached PyJWT-2.9.0-py3-none-any.whl.metadata (3.0 kB)
+Collecting six==1.16.0 (from -r requirements.txt (line 12))
+  Using cached six-1.16.0-py2.py3-none-any.whl.metadata (1.8 kB)
+Collecting sqlparse==0.5.1 (from -r requirements.txt (line 13))
+  Using cached sqlparse-0.5.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting text-unidecode==1.3 (from -r requirements.txt (line 14))
+  Downloading text_unidecode-1.3-py2.py3-none-any.whl.metadata (2.4 kB)
+Collecting typing_extensions==4.12.2 (from -r requirements.txt (line 15))
+  Using cached typing_extensions-4.12.2-py3-none-any.whl.metadata (3.0 kB)
+Using cached asgiref-3.8.1-py3-none-any.whl (23 kB)
+Using cached Django-5.1.2-py3-none-any.whl (8.3 MB)
+Downloading django_graphql_jwt-0.4.0-py3-none-any.whl (47 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 47.1/47.1 kB 1.4 MB/s eta 0:00:00
+Using cached djangorestframework-3.15.2-py3-none-any.whl (1.1 MB)
+Downloading graphene-3.4-py2.py3-none-any.whl (114 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 114.6/114.6 kB 9.1 MB/s eta 0:00:00
+Downloading graphene_django-3.2.2-py2.py3-none-any.whl (114 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 114.2/114.2 kB 14.8 MB/s eta 0:00:00
+Downloading graphql_core-3.2.5-py3-none-any.whl (203 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 203.2/203.2 kB 16.2 MB/s eta 0:00:00
+Downloading graphql_relay-3.2.0-py3-none-any.whl (16 kB)
+Using cached PyJWT-2.9.0-py3-none-any.whl (22 kB)
+Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Using cached sqlparse-0.5.1-py3-none-any.whl (44 kB)
+Downloading text_unidecode-1.3-py2.py3-none-any.whl (78 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.2/78.2 kB 6.5 MB/s eta 0:00:00
+Using cached typing_extensions-4.12.2-py3-none-any.whl (37 kB)
+Building wheels for collected packages: django-preventconcurrentlogins, promise
+  Building wheel for django-preventconcurrentlogins (pyproject.toml) ... done
+  Created wheel for django-preventconcurrentlogins: filename=django_preventconcurrentlogins-0.8.2-py3-none-any.whl size=6217 sha256=65f6148e9481f8815c5196a6df034ebc28a5357d3d90ca01acacd01ca65fc252
+  Stored in directory: /root/.cache/pip/wheels/f6/75/f2/b0e6b55f5d325d59aa39acbfe9de88b3ecc9504107c9fa3101
+  Building wheel for promise (pyproject.toml) ... done
+  Created wheel for promise: filename=promise-2.3-py3-none-any.whl size=21481 sha256=db4bd40dafd54aff9cb4bf65a64e5eaa61f35dd7b5e8803f048644a08606a554
+  Stored in directory: /root/.cache/pip/wheels/e7/e6/28/864bdfee5339dbd6ddcb5a186286a8e217648ec198bdf0097d
+Successfully built django-preventconcurrentlogins promise
+Installing collected packages: text-unidecode, typing_extensions, sqlparse, six, PyJWT, graphql-core, asgiref, promise, graphql-relay, Django, graphene, djangorestframework, django-preventconcurrentlogins, graphene-django, django-graphql-jwt
+Successfully installed Django-5.1.2 PyJWT-2.9.0 asgiref-3.8.1 django-graphql-jwt-0.4.0 django-preventconcurrentlogins-0.8.2 djangorestframework-3.15.2 graphene-3.4 graphene-django-3.2.2 graphql-core-3.2.5 graphql-relay-3.2.0 promise-2.3 six-1.16.0 sqlparse-0.5.1 text-unidecode-1.3 typing_extensions-4.12.2
+(env) root@book-store:/var/www/exam8# nano /etc/systemd/system/exam.service
+(env) root@book-store:/var/www/exam8# sudo systemctl enable exam.service
+Created symlink /etc/systemd/system/multi-user.target.wants/exam.service → /etc/systemd/system/exam.service.
+(env) root@book-store:/var/www/exam8# sudo systemctl start exam.service
+(env) root@book-store:/var/www/exam8# nano /etc/nginx/sites-available/exam.conf
+(env) root@book-store:/var/www/exam8# nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+(env) root@book-store:/var/www/exam8# ln -s /etc/nginx/sites-available/exam.conf /etc/nginx/sites-enabled/
+(env) root@book-store:/var/www/exam8# ls /etc/nginx/sites-enabled/
+book.conf  default  exam.conf
+(env) root@book-store:/var/www/exam8# systemctl restart nginx.service
+(env) root@book-store:/var/www/exam8# systemctl status nginx.service
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2024-10-22 18:41:06 UTC; 12s ago
+       Docs: man:nginx(8)
+    Process: 124782 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (c>
+    Process: 124783 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exite>
+   Main PID: 124785 (nginx)
+      Tasks: 2 (limit: 1113)
+     Memory: 1.8M (peak: 2.4M)
+        CPU: 28ms
+     CGroup: /system.slice/nginx.service
+             ├─124785 "nginx: master process /usr/sbin/nginx -g daemon on; master_process >
+             └─124786 "nginx: worker process"
+
+Oct 22 18:41:06 book-store systemd[1]: Starting nginx.service - A high performance web ser>
+Oct 22 18:41:06 book-store systemd[1]: Started nginx.service - A high performance web serv>
+
+[1]+  Stopped                 systemctl status nginx.service
+(env) root@book-store:/var/www/exam8# systemctl restart exam.service
+(env) root@book-store:/var/www/exam8# sudo systemctl restart gunicorn
+Failed to restart gunicorn.service: Unit gunicorn.service not found.
+(env) root@book-store:/var/www/exam8# apt install gunicorn
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  python3-gunicorn
+Suggested packages:
+  python3-pastedeploy python3-setproctitle python3-tornado
+The following NEW packages will be installed:
+  gunicorn python3-gunicorn
+0 upgraded, 2 newly installed, 0 to remove and 119 not upgraded.
+Need to get 70.3 kB of archives.
+After this operation, 318 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://mirrors.digitalocean.com/ubuntu noble/universe amd64 python3-gunicorn all 20.1.0-6 [58.5 kB]
+Get:2 http://mirrors.digitalocean.com/ubuntu noble/universe amd64 gunicorn all 20.1.0-6 [11.9 kB]
+Fetched 70.3 kB in 6s (11.2 kB/s)
+Selecting previously unselected package python3-gunicorn.
+(Reading database ... 103572 files and directories currently installed.)
+Preparing to unpack .../python3-gunicorn_20.1.0-6_all.deb ...
+Unpacking python3-gunicorn (20.1.0-6) ...
+Selecting previously unselected package gunicorn.
+Preparing to unpack .../gunicorn_20.1.0-6_all.deb ...
+Unpacking gunicorn (20.1.0-6) ...
+Setting up python3-gunicorn (20.1.0-6) ...
+Setting up gunicorn (20.1.0-6) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Scanning processes...
+Scanning candidates...
+Scanning linux images...
+
+Pending kernel upgrade!
+Running kernel version:
+  6.8.0-36-generic
+Diagnostics:
+  The currently running kernel version is not the expected kernel version
+6.8.0-47-generic.
+
+Restarting the system to load the new kernel will not be handled automatically, so you
+should consider rebooting.
+
+Restarting services...
+
+Service restarts being deferred:
+ /etc/needrestart/restart.d/dbus.service
+ systemctl restart getty@tty1.service
+ systemctl restart serial-getty@ttyS0.service
+ systemctl restart systemd-logind.service
+ systemctl restart unattended-upgrades.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+(env) root@book-store:/var/www/exam8# sudo systemctl restart gunicorn
+Failed to restart gunicorn.service: Unit gunicorn.service not found.
+(env) root@book-store:/var/www/exam8# systemctl restart exam.service
+(env) root@book-store:/var/www/exam8# systemctl restart nginx.service
+(env) root@book-store:/var/www/exam8# sudo systemctl restart gunicorn
+Failed to restart gunicorn.service: Unit gunicorn.service not found.
+(env) root@book-store:/var/www/exam8# sudo systemctl start gunicorn
+sudo systemctl enable gunicorn
+Failed to start gunicorn.service: Unit gunicorn.service not found.
+Failed to enable unit: Unit file gunicorn.service does not exist.
+(env) root@book-store:/var/www/exam8# nano /etc/systemd/system/exam.service
+(env) root@book-store:/var/www/exam8# sudo systemctl start gunicorn
+Failed to start gunicorn.service: Unit gunicorn.service not found.
+(env) root@book-store:/var/www/exam8# sudo systemctl daemon-reload
+(env) root@book-store:/var/www/exam8# sudo systemctl start gunicorn
+Failed to start gunicorn.service: Unit gunicorn.service not found.
+(env) root@book-store:/var/www/exam8# systemctl restart nginx.service
+(env) root@book-store:/var/www/exam8# systemctl restart exam.service
+(env) root@book-store:/var/www/exam8# systemctl status nginx.service
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2024-10-22 18:47:22 UTC; 30s ago
+       Docs: man:nginx(8)
+    Process: 125054 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (c>
+    Process: 125056 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exite>
+   Main PID: 125057 (nginx)
+      Tasks: 2 (limit: 1113)
+     Memory: 1.8M (peak: 2.3M)
+        CPU: 17ms
+     CGroup: /system.slice/nginx.service
+             ├─125057 "nginx: master process /usr/sbin/nginx -g daemon on; master_process >
+             └─125058 "nginx: worker process"
+
+Oct 22 18:47:22 book-store systemd[1]: Starting nginx.service - A high performance web ser>
+Oct 22 18:47:22 book-store systemd[1]: Started nginx.service - A high performance web serv>
+
+[2]+  Stopped                 systemctl status nginx.service
+(env) root@book-store:/var/www/exam8# ls /etc/nginx/sites-enabled/
+book.conf  default  exam.conf
+(env) root@book-store:/var/www/exam8# nano /etc/systemd/system/exam.service
+(env) root@book-store:/var/www/exam8# sudo systemctl start exam.service
+(env) root@book-store:/var/www/exam8# nano /etc/nginx/sites-available/exam.conf
+(env) root@book-store:/var/www/exam8# python manage.py collectstatic
+
+164 static files copied to '/var/www/exam8/static'.
+(env) root@book-store:/var/www/exam8# sudo systemctl start exam.service
+(env) root@book-store:/var/www/exam8# systemctl status nginx.service
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2024-10-22 18:47:22 UTC; 4min 35s ago
+       Docs: man:nginx(8)
+    Process: 125054 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (c>
+    Process: 125056 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exite>
+   Main PID: 125057 (nginx)
+      Tasks: 2 (limit: 1113)
+     Memory: 1.8M (peak: 2.3M)
+        CPU: 19ms
+     CGroup: /system.slice/nginx.service
+             ├─125057 "nginx: master process /usr/sbin/nginx -g daemon on; master_process >
+             └─125058 "nginx: worker process"
+
+Oct 22 18:47:22 book-store systemd[1]: Starting nginx.service - A high performance web ser>
+Oct 22 18:47:22 book-store systemd[1]: Started nginx.service - A high performance web serv>
+
+[3]+  Stopped                 systemctl status nginx.service
+(env) root@book-store:/var/www/exam8# sudo systemctl start gunicorn
+Failed to start gunicorn.service: Unit gunicorn.service not found.
+(env) root@book-store:/var/www/exam8# sudo systemctl reload nginx
+(env) root@book-store:/var/www/exam8# sudo systemctl start gunicorn
+Failed to start gunicorn.service: Unit gunicorn.service not found.
+(env) root@book-store:/var/www/exam8# sudo systemctl start exam.service
+(env) root@book-store:/var/www/exam8# sudo systemctl status exam.service
+× exam.service - gunicorn daemon
+     Loaded: loaded (/etc/systemd/system/exam.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Tue 2024-10-22 18:52:37 UTC; 7s ago
+   Duration: 9ms
+    Process: 125117 ExecStart=/var/www/exam8/env/bin/gunicorn --workers 3 --bind unix:/var>
+   Main PID: 125117 (code=exited, status=203/EXEC)
+        CPU: 2ms
+
+Oct 22 18:52:37 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 18:52:37 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:52:37 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+
+[4]+  Stopped                 sudo systemctl status exam.service
+(env) root@book-store:/var/www/exam8# journalctl -u exam.service
+Oct 22 18:35:48 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 18:35:48 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:35:48 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+Oct 22 18:42:32 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 18:42:32 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:42:32 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+Oct 22 18:44:28 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 18:44:28 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:44:28 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+Oct 22 18:47:35 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 18:47:35 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:47:35 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+Oct 22 18:49:52 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 18:49:52 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:49:52 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+Oct 22 18:51:52 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 18:51:52 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:51:52 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+Oct 22 18:52:37 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 18:52:37 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:52:37 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+...skipping...
+Oct 22 18:35:48 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 18:35:48 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:35:48 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+Oct 22 18:42:32 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 18:42:32 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:42:32 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+Oct 22 18:44:28 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 18:44:28 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:44:28 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+Oct 22 18:47:35 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 18:47:35 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:47:35 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+Oct 22 18:49:52 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 18:49:52 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:49:52 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+Oct 22 18:51:52 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 18:51:52 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:51:52 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+Oct 22 18:52:37 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 18:52:37 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:52:37 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+
+[5]+  Stopped                 journalctl -u exam.service
+(env) root@book-store:/var/www/exam8# nano /etc/nginx/sites-available/exam.conf
+(env) root@book-store:/var/www/exam8# sudo systemctl status exam.service
+× exam.service - gunicorn daemon
+     Loaded: loaded (/etc/systemd/system/exam.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Tue 2024-10-22 18:52:37 UTC; 1min 20s ago
+   Duration: 9ms
+    Process: 125117 ExecStart=/var/www/exam8/env/bin/gunicorn --workers 3 --bind unix:/var>
+   Main PID: 125117 (code=exited, status=203/EXEC)
+        CPU: 2ms
+
+Oct 22 18:52:37 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 18:52:37 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:52:37 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+...skipping...
+× exam.service - gunicorn daemon
+     Loaded: loaded (/etc/systemd/system/exam.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Tue 2024-10-22 18:52:37 UTC; 1min 20s ago
+   Duration: 9ms
+    Process: 125117 ExecStart=/var/www/exam8/env/bin/gunicorn --workers 3 --bind unix:/var>
+   Main PID: 125117 (code=exited, status=203/EXEC)
+        CPU: 2ms
+
+Oct 22 18:52:37 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 18:52:37 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:52:37 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-11/11 (END)
+[6]+  Stopped                 sudo systemctl status exam.service
+(env) root@book-store:/var/www/exam8# sudo systemctl start exam.service
+(env) root@book-store:/var/www/exam8# /var/www/exam8/env/bin/gunicorn --version
+-bash: /var/www/exam8/env/bin/gunicorn: No such file or directory
+(env) root@book-store:/var/www/exam8# source /var/www/exam8/env/bin/activate
+pip install gunicorn
+Collecting gunicorn
+  Using cached gunicorn-23.0.0-py3-none-any.whl.metadata (4.4 kB)
+Collecting packaging (from gunicorn)
+  Using cached packaging-24.1-py3-none-any.whl.metadata (3.2 kB)
+Using cached gunicorn-23.0.0-py3-none-any.whl (85 kB)
+Using cached packaging-24.1-py3-none-any.whl (53 kB)
+Installing collected packages: packaging, gunicorn
+Successfully installed gunicorn-23.0.0 packaging-24.1
+(env) root@book-store:/var/www/exam8# nano /etc/nginx/sites-available/exam.conf
+(env) root@book-store:/var/www/exam8# nano /etc/systemd/system/exam.service
+(env) root@book-store:/var/www/exam8# nano /etc/systemd/system/exam.service
+(env) root@book-store:/var/www/exam8# sudo systemctl daemon-reload
+sudo systemctl restart exam.service
+(env) root@book-store:/var/www/exam8# /var/www/exam8/env/bin/gunicorn --version
+gunicorn (version 23.0.0)
+(env) root@book-store:/var/www/exam8# sudo systemctl start exam.service
+(env) root@book-store:/var/www/exam8# sudo systemctl daemon-reload
+(env) root@book-store:/var/www/exam8# sudo systemctl start exam.service
+(env) root@book-store:/var/www/exam8# sudo systemctl restart exam.service
+(env) root@book-store:/var/www/exam8# sudo systemctl start exam.service
+(env) root@book-store:/var/www/exam8# sudo systemctl status exam.service
+× exam.service - gunicorn daemon
+     Loaded: loaded (/etc/systemd/system/exam.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Tue 2024-10-22 18:58:46 UTC; 4s ago
+   Duration: 398ms
+    Process: 125293 ExecStart=/var/www/exam8/env/bin/gunicorn --workers 3 --bind unix:/var>
+   Main PID: 125293 (code=exited, status=3)
+        CPU: 277ms
+
+Oct 22 18:58:45 book-store gunicorn[125296]:   File "<frozen importlib._bootstrap>", line >
+Oct 22 18:58:45 book-store gunicorn[125296]: ModuleNotFoundError: No module named 'exam8'
+Oct 22 18:58:45 book-store gunicorn[125296]: [2024-10-22 18:58:45 +0000] [125296] [INFO] W>
+Oct 22 18:58:45 book-store gunicorn[125293]: [2024-10-22 18:58:45 +0000] [125293] [ERROR] >
+Oct 22 18:58:45 book-store gunicorn[125293]: [2024-10-22 18:58:45 +0000] [125293] [ERROR] >
+Oct 22 18:58:45 book-store gunicorn[125293]: [2024-10-22 18:58:45 +0000] [125293] [ERROR] >
+Oct 22 18:58:45 book-store gunicorn[125293]: [2024-10-22 18:58:45 +0000] [125293] [ERROR] >
+Oct 22 18:58:45 book-store gunicorn[125293]: [2024-10-22 18:58:45 +0000] [125293] [ERROR] >
+Oct 22 18:58:46 book-store systemd[1]: exam.service: Main process exited, code=exited, sta>
+Oct 22 18:58:46 book-store systemd[1]: exam.service: Failed with result 'exit-code'.
+
+[7]+  Stopped                 sudo systemctl status exam.service
+(env) root@book-store:/var/www/exam8# nano /etc/systemd/system/exam.service
+(env) root@book-store:/var/www/exam8# sudo systemctl daemon-reload
+sudo systemctl restart exam.service
+(env) root@book-store:/var/www/exam8# nano /etc/systemd/system/exam.service
+(env) root@book-store:/var/www/exam8# nano /etc/nginx/sites-available/exam.conf
+(env) root@book-store:/var/www/exam8# sudo systemctl restart exam.service
+^[[A(env) root@book-store:/var/www/exasudo systemctl status exam.service
+● exam.service - gunicorn daemon
+     Loaded: loaded (/etc/systemd/system/exam.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2024-10-22 19:01:03 UTC; 8s ago
+   Main PID: 125370 (gunicorn)
+      Tasks: 4 (limit: 1113)
+     Memory: 129.4M (peak: 129.5M)
+        CPU: 2.005s
+     CGroup: /system.slice/exam.service
+             ├─125370 /var/www/exam8/env/bin/python3 /var/www/exam8/env/bin/gunicorn --wor>
+             ├─125371 /var/www/exam8/env/bin/python3 /var/www/exam8/env/bin/gunicorn --wor>
+             ├─125372 /var/www/exam8/env/bin/python3 /var/www/exam8/env/bin/gunicorn --wor>
+             └─125373 /var/www/exam8/env/bin/python3 /var/www/exam8/env/bin/gunicorn --wor>
+
+Oct 22 19:01:03 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 19:01:03 book-store gunicorn[125370]: [2024-10-22 19:01:03 +0000] [125370] [INFO] S>
+Oct 22 19:01:03 book-store gunicorn[125370]: [2024-10-22 19:01:03 +0000] [125370] [INFO] L>
+Oct 22 19:01:03 book-store gunicorn[125370]: [2024-10-22 19:01:03 +0000] [125370] [INFO] U>
+Oct 22 19:01:03 book-store gunicorn[125371]: [2024-10-22 19:01:03 +0000] [125371] [INFO] B>
+Oct 22 19:01:03 book-store gunicorn[125372]: [2024-10-22 19:01:03 +0000] [125372] [INFO] B>
+Oct 22 19:01:03 book-store gunicorn[125373]: [2024-10-22 19:01:03 +0000] [125373] [INFO] B>
+lines 1-20/20 (END)
+[8]+  Stopped                 sudo systemctl status exam.service
+(env) root@book-store:/var/www/exam8# sudo systemctl status exam.service
+● exam.service - gunicorn daemon
+     Loaded: loaded (/etc/systemd/system/exam.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2024-10-22 19:01:03 UTC; 34s ago
+   Main PID: 125370 (gunicorn)
+      Tasks: 4 (limit: 1113)
+     Memory: 129.4M (peak: 129.6M)
+        CPU: 2.012s
+     CGroup: /system.slice/exam.service
+             ├─125370 /var/www/exam8/env/bin/python3 /var/www/exam8/env/bin/gunicorn --wor>
+             ├─125371 /var/www/exam8/env/bin/python3 /var/www/exam8/env/bin/gunicorn --wor>
+             ├─125372 /var/www/exam8/env/bin/python3 /var/www/exam8/env/bin/gunicorn --wor>
+             └─125373 /var/www/exam8/env/bin/python3 /var/www/exam8/env/bin/gunicorn --wor>
+
+Oct 22 19:01:03 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 19:01:03 book-store gunicorn[125370]: [2024-10-22 19:01:03 +0000] [125370] [INFO] S>
+Oct 22 19:01:03 book-store gunicorn[125370]: [2024-10-22 19:01:03 +0000] [125370] [INFO] L>
+Oct 22 19:01:03 book-store gunicorn[125370]: [2024-10-22 19:01:03 +0000] [125370] [INFO] U>
+Oct 22 19:01:03 book-store gunicorn[125371]: [2024-10-22 19:01:03 +0000] [125371] [INFO] B>
+Oct 22 19:01:03 book-store gunicorn[125372]: [2024-10-22 19:01:03 +0000] [125372] [INFO] B>
+Oct 22 19:01:03 book-store gunicorn[125373]: [2024-10-22 19:01:03 +0000] [125373] [INFO] B>
+
+[9]+  Stopped                 sudo systemctl status exam.service
+(env) root@book-store:/var/www/exam8# sudo systemctl status exam.service
+● exam.service - gunicorn daemon
+     Loaded: loaded (/etc/systemd/system/exam.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2024-10-22 19:01:03 UTC; 53s ago
+   Main PID: 125370 (gunicorn)
+      Tasks: 4 (limit: 1113)
+     Memory: 129.4M (peak: 129.6M)
+        CPU: 2.015s
+     CGroup: /system.slice/exam.service
+             ├─125370 /var/www/exam8/env/bin/python3 /var/www/exam8/env/bin/gunicorn --wor>
+             ├─125371 /var/www/exam8/env/bin/python3 /var/www/exam8/env/bin/gunicorn --wor>
+             ├─125372 /var/www/exam8/env/bin/python3 /var/www/exam8/env/bin/gunicorn --wor>
+             └─125373 /var/www/exam8/env/bin/python3 /var/www/exam8/env/bin/gunicorn --wor>
+
+Oct 22 19:01:03 book-store systemd[1]: Started exam.service - gunicorn daemon.
+Oct 22 19:01:03 book-store gunicorn[125370]: [2024-10-22 19:01:03 +0000] [125370] [INFO] S>
+Oct 22 19:01:03 book-store gunicorn[125370]: [2024-10-22 19:01:03 +0000] [125370] [INFO] L>
+Oct 22 19:01:03 book-store gunicorn[125370]: [2024-10-22 19:01:03 +0000] [125370] [INFO] U>
+Oct 22 19:01:03 book-store gunicorn[125371]: [2024-10-22 19:01:03 +0000] [125371] [INFO] B>
+Oct 22 19:01:03 book-store gunicorn[125372]: [2024-10-22 19:01:03 +0000] [125372] [INFO] B>
+Oct 22 19:01:03 book-store gunicorn[125373]: [2024-10-22 19:01:03 +0000] [125373] [INFO] B>
+
+[10]+  Stopped                 sudo systemctl status exam.service
+(env) root@book-store:/var/www/exam8# sudo systemctl restart nginx
+(env) root@book-store:/var/www/exam8# git pull
+remote: Enumerating objects: 11, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 5 (delta 4), reused 5 (delta 4), pack-reused 0 (from 0)
+Unpacking objects: 100% (5/5), 514 bytes | 257.00 KiB/s, done.
+From github.com:muhammadjalilov/exam8
+   696be25..2f69f10  main       -> origin/main
+Updating 696be25..2f69f10
+Fast-forward
+ config/settings.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+(env) root@book-store:/var/www/exam8# sudo systemctl restart nginx
+(env) root@book-store:/var/www/exam8# ls
+config  exam.sock  readme.md         static  task2  users
+env     manage.py  requirements.txt  task1   task3
+(env) root@book-store:/var/www/exam8# sudo systemctl restart exam.service
+(env) root@book-store:/var/www/exam8#
